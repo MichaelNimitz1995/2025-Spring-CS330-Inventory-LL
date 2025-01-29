@@ -144,13 +144,17 @@ public class Inventory
         // Once we reach this function... we know that `toAdd` must be stored
         if(this.isEmpty())
         {
+            // if the LinkedList is empty, head and tail are both null to begin
+            // set the head, which is now also the tail, and size to 1
             this.slots.head = newNode;
             this.slots.tail = newNode;
             this.slots.currentSize = 1;
         }
         else
         {
+            // if the LinkedList is not empty, add the newNode after the tail
             this.slots.tail.next = newNode;
+            // move the tail pointer to the newNode in the LinkedList
             this.slots.tail = this.slots.tail.next;
             this.slots.currentSize++;
         }
