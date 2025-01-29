@@ -118,7 +118,9 @@ public class Inventory
     public ItemStack findMatchingItemStack(ItemStack key)
     {
         // Add the necessary sequential search loop
+        // start at the head node of the LinkedList
         LinkedList.Node<ItemStack> currentNode = this.slots.head;
+        // search the LinkedList until finding an item match or hitting the end
         while(currentNode != null)
         {
             if(currentNode.data.equals(key))
@@ -128,6 +130,7 @@ public class Inventory
             currentNode = currentNode.next;
         }
         
+        // no match
         return null;
     }
 
