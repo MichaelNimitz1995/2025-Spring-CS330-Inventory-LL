@@ -94,7 +94,7 @@ public class Inventory
     public boolean isFull()
     {
         // Replace the next line
-        return false;
+        return this.totalSlots() == this.utilizedSlots();
     }
 
     /**
@@ -118,7 +118,16 @@ public class Inventory
     public ItemStack findMatchingItemStack(ItemStack key)
     {
         // Add the necessary sequential search loop
-
+        LinkedList.Node<ItemStack> currentNode = this.slots.head;
+        while(currentNode != null)
+        {
+            if(currentNode.data.equals(key))
+            {
+                return currentNode.data;
+            }
+            currentNode = currentNode.next;
+        }
+        
         return null;
     }
 
@@ -133,6 +142,7 @@ public class Inventory
 
         // Use the appendNode/add logic from Review 1 as your starting point
         // Once we reach this function... we know that `toAdd` must be stored
+        this.slots.tail.next = newNode;
     }
 
     /**
