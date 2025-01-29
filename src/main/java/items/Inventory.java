@@ -142,7 +142,8 @@ public class Inventory
 
         // Use the appendNode/add logic from Review 1 as your starting point
         // Once we reach this function... we know that `toAdd` must be stored
-        this.slots.tail.next = newNode;
+        this.slots.tail = newNode;
+        this.slots.currentSize++;
     }
 
     /**
